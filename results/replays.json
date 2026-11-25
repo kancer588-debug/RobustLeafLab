@@ -1,0 +1,1017 @@
+{
+  "class_order": [
+    "healthy",
+    "early_blight",
+    "late_blight"
+  ],
+  "cohorts": {
+    "plantcity_replay": {
+      "dataset": "PlantCity",
+      "role": "historical three-class replay",
+      "images": 872,
+      "class_counts": {
+        "healthy": 339,
+        "early_blight": 319,
+        "late_blight": 214
+      },
+      "models": {
+        "ac42": {
+          "accuracy": 0.588302752293578,
+          "macro_f1": 0.5047592729059199,
+          "confusion": [
+            [
+              335,
+              0,
+              4
+            ],
+            [
+              199,
+              22,
+              98
+            ],
+            [
+              47,
+              11,
+              156
+            ]
+          ],
+          "healthy_false_alarm_count": 4,
+          "early_to_healthy": 199,
+          "late_to_healthy": 47
+        },
+        "dino-health": {
+          "accuracy": 0.6915137614678899,
+          "macro_f1": 0.6638013588447927,
+          "confusion": [
+            [
+              328,
+              0,
+              11
+            ],
+            [
+              109,
+              130,
+              80
+            ],
+            [
+              3,
+              66,
+              145
+            ]
+          ],
+          "healthy_false_alarm_count": 11,
+          "early_to_healthy": 109,
+          "late_to_healthy": 3
+        },
+        "current": {
+          "accuracy": 0.7339449541284404,
+          "macro_f1": 0.7130192499249147,
+          "confusion": [
+            [
+              323,
+              5,
+              11
+            ],
+            [
+              67,
+              172,
+              80
+            ],
+            [
+              3,
+              66,
+              145
+            ]
+          ],
+          "healthy_false_alarm_count": 16,
+          "early_to_healthy": 67,
+          "late_to_healthy": 3
+        },
+        "ac42-finetuned": {
+          "accuracy": 0.6284403669724771,
+          "macro_f1": 0.5591740110259872,
+          "confusion": [
+            [
+              315,
+              0,
+              24
+            ],
+            [
+              102,
+              41,
+              176
+            ],
+            [
+              8,
+              14,
+              192
+            ]
+          ],
+          "healthy_false_alarm_count": 24,
+          "early_to_healthy": 102,
+          "late_to_healthy": 8
+        },
+        "dino-subtype": {
+          "accuracy": 0.6720183486238532,
+          "macro_f1": 0.6449256071227852,
+          "confusion": [
+            [
+              315,
+              0,
+              24
+            ],
+            [
+              102,
+              127,
+              90
+            ],
+            [
+              8,
+              62,
+              144
+            ]
+          ],
+          "healthy_false_alarm_count": 24,
+          "early_to_healthy": 102,
+          "late_to_healthy": 8
+        }
+      }
+    },
+    "plantwild_replay": {
+      "dataset": "PlantWild",
+      "role": "historical three-class replay",
+      "images": 102,
+      "class_counts": {
+        "healthy": 19,
+        "early_blight": 50,
+        "late_blight": 33
+      },
+      "models": {
+        "ac42": {
+          "accuracy": 0.43137254901960786,
+          "macro_f1": 0.42833627278071723,
+          "confusion": [
+            [
+              19,
+              0,
+              0
+            ],
+            [
+              26,
+              11,
+              13
+            ],
+            [
+              17,
+              2,
+              14
+            ]
+          ],
+          "healthy_false_alarm_count": 0,
+          "early_to_healthy": 26,
+          "late_to_healthy": 17
+        },
+        "dino-health": {
+          "accuracy": 0.6274509803921569,
+          "macro_f1": 0.6250281897822881,
+          "confusion": [
+            [
+              18,
+              1,
+              0
+            ],
+            [
+              14,
+              26,
+              10
+            ],
+            [
+              10,
+              3,
+              20
+            ]
+          ],
+          "healthy_false_alarm_count": 1,
+          "early_to_healthy": 14,
+          "late_to_healthy": 10
+        },
+        "current": {
+          "accuracy": 0.6568627450980392,
+          "macro_f1": 0.6493152816682228,
+          "confusion": [
+            [
+              17,
+              2,
+              0
+            ],
+            [
+              10,
+              30,
+              10
+            ],
+            [
+              10,
+              3,
+              20
+            ]
+          ],
+          "healthy_false_alarm_count": 2,
+          "early_to_healthy": 10,
+          "late_to_healthy": 10
+        },
+        "ac42-finetuned": {
+          "accuracy": 0.4803921568627451,
+          "macro_f1": 0.47962247962247967,
+          "confusion": [
+            [
+              14,
+              1,
+              4
+            ],
+            [
+              14,
+              17,
+              19
+            ],
+            [
+              13,
+              2,
+              18
+            ]
+          ],
+          "healthy_false_alarm_count": 5,
+          "early_to_healthy": 14,
+          "late_to_healthy": 13
+        },
+        "dino-subtype": {
+          "accuracy": 0.5588235294117647,
+          "macro_f1": 0.5494415049970605,
+          "confusion": [
+            [
+              14,
+              2,
+              3
+            ],
+            [
+              14,
+              26,
+              10
+            ],
+            [
+              13,
+              3,
+              17
+            ]
+          ],
+          "healthy_false_alarm_count": 5,
+          "early_to_healthy": 14,
+          "late_to_healthy": 13
+        }
+      }
+    },
+    "imtiaz_replay": {
+      "dataset": "Imtiaz",
+      "role": "historical three-class replay",
+      "images": 48,
+      "class_counts": {
+        "healthy": 21,
+        "early_blight": 17,
+        "late_blight": 10
+      },
+      "models": {
+        "ac42": {
+          "accuracy": 0.5416666666666666,
+          "macro_f1": 0.4573099415204678,
+          "confusion": [
+            [
+              19,
+              0,
+              2
+            ],
+            [
+              14,
+              1,
+              2
+            ],
+            [
+              3,
+              1,
+              6
+            ]
+          ],
+          "healthy_false_alarm_count": 2,
+          "early_to_healthy": 14,
+          "late_to_healthy": 3
+        },
+        "dino-health": {
+          "accuracy": 0.6666666666666666,
+          "macro_f1": 0.5965237481194928,
+          "confusion": [
+            [
+              19,
+              0,
+              2
+            ],
+            [
+              6,
+              10,
+              1
+            ],
+            [
+              1,
+              6,
+              3
+            ]
+          ],
+          "healthy_false_alarm_count": 2,
+          "early_to_healthy": 6,
+          "late_to_healthy": 1
+        },
+        "current": {
+          "accuracy": 0.6875,
+          "macro_f1": 0.6199494949494949,
+          "confusion": [
+            [
+              18,
+              1,
+              2
+            ],
+            [
+              4,
+              12,
+              1
+            ],
+            [
+              1,
+              6,
+              3
+            ]
+          ],
+          "healthy_false_alarm_count": 3,
+          "early_to_healthy": 4,
+          "late_to_healthy": 1
+        },
+        "ac42-finetuned": {
+          "accuracy": 0.5416666666666666,
+          "macro_f1": 0.510569105691057,
+          "confusion": [
+            [
+              15,
+              0,
+              6
+            ],
+            [
+              4,
+              5,
+              8
+            ],
+            [
+              1,
+              3,
+              6
+            ]
+          ],
+          "healthy_false_alarm_count": 6,
+          "early_to_healthy": 4,
+          "late_to_healthy": 1
+        },
+        "dino-subtype": {
+          "accuracy": 0.6041666666666666,
+          "macro_f1": 0.5548268087722894,
+          "confusion": [
+            [
+              15,
+              0,
+              6
+            ],
+            [
+              4,
+              11,
+              2
+            ],
+            [
+              1,
+              6,
+              3
+            ]
+          ],
+          "healthy_false_alarm_count": 6,
+          "early_to_healthy": 4,
+          "late_to_healthy": 1
+        }
+      }
+    },
+    "rachin_replay": {
+      "dataset": "Rachin",
+      "role": "historical three-class replay",
+      "images": 229,
+      "class_counts": {
+        "healthy": 78,
+        "early_blight": 78,
+        "late_blight": 73
+      },
+      "models": {
+        "ac42": {
+          "accuracy": 0.7030567685589519,
+          "macro_f1": 0.6953219053321221,
+          "confusion": [
+            [
+              69,
+              1,
+              8
+            ],
+            [
+              16,
+              39,
+              23
+            ],
+            [
+              1,
+              19,
+              53
+            ]
+          ],
+          "healthy_false_alarm_count": 9,
+          "early_to_healthy": 16,
+          "late_to_healthy": 1
+        },
+        "dino-health": {
+          "accuracy": 0.7205240174672489,
+          "macro_f1": 0.7135014302506506,
+          "confusion": [
+            [
+              70,
+              6,
+              2
+            ],
+            [
+              10,
+              38,
+              30
+            ],
+            [
+              0,
+              16,
+              57
+            ]
+          ],
+          "healthy_false_alarm_count": 8,
+          "early_to_healthy": 10,
+          "late_to_healthy": 0
+        },
+        "current": {
+          "accuracy": 0.7292576419213974,
+          "macro_f1": 0.7241893908560576,
+          "confusion": [
+            [
+              70,
+              6,
+              2
+            ],
+            [
+              8,
+              40,
+              30
+            ],
+            [
+              0,
+              16,
+              57
+            ]
+          ],
+          "healthy_false_alarm_count": 8,
+          "early_to_healthy": 8,
+          "late_to_healthy": 0
+        },
+        "ac42-finetuned": {
+          "accuracy": 0.6899563318777293,
+          "macro_f1": 0.6885876885876886,
+          "confusion": [
+            [
+              62,
+              7,
+              9
+            ],
+            [
+              14,
+              43,
+              21
+            ],
+            [
+              0,
+              20,
+              53
+            ]
+          ],
+          "healthy_false_alarm_count": 16,
+          "early_to_healthy": 14,
+          "late_to_healthy": 0
+        },
+        "dino-subtype": {
+          "accuracy": 0.6768558951965066,
+          "macro_f1": 0.6712269745271318,
+          "confusion": [
+            [
+              62,
+              8,
+              8
+            ],
+            [
+              14,
+              36,
+              28
+            ],
+            [
+              0,
+              16,
+              57
+            ]
+          ],
+          "healthy_false_alarm_count": 16,
+          "early_to_healthy": 14,
+          "late_to_healthy": 0
+        }
+      }
+    },
+    "taiwan_healthy_late": {
+      "dataset": "Taiwan",
+      "role": "historical healthy/late-blight replay",
+      "images": 204,
+      "class_counts": {
+        "healthy": 106,
+        "early_blight": 0,
+        "late_blight": 98
+      },
+      "models": {
+        "ac42": {
+          "accuracy": 0.7401960784313726,
+          "macro_f1": null,
+          "confusion": [
+            [
+              97,
+              0,
+              9
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              41,
+              3,
+              54
+            ]
+          ],
+          "healthy_false_alarm_count": 9,
+          "early_to_healthy": 0,
+          "late_to_healthy": 41
+        },
+        "dino-health": {
+          "accuracy": 0.7647058823529411,
+          "macro_f1": null,
+          "confusion": [
+            [
+              92,
+              1,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              22,
+              12,
+              64
+            ]
+          ],
+          "healthy_false_alarm_count": 14,
+          "early_to_healthy": 0,
+          "late_to_healthy": 22
+        },
+        "current": {
+          "accuracy": 0.7598039215686274,
+          "macro_f1": null,
+          "confusion": [
+            [
+              91,
+              2,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              21,
+              13,
+              64
+            ]
+          ],
+          "healthy_false_alarm_count": 15,
+          "early_to_healthy": 0,
+          "late_to_healthy": 21
+        },
+        "ac42-finetuned": {
+          "accuracy": 0.6176470588235294,
+          "macro_f1": null,
+          "confusion": [
+            [
+              59,
+              0,
+              47
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              28,
+              3,
+              67
+            ]
+          ],
+          "healthy_false_alarm_count": 47,
+          "early_to_healthy": 0,
+          "late_to_healthy": 28
+        },
+        "dino-subtype": {
+          "accuracy": 0.6029411764705882,
+          "macro_f1": null,
+          "confusion": [
+            [
+              59,
+              1,
+              46
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              28,
+              6,
+              64
+            ]
+          ],
+          "healthy_false_alarm_count": 47,
+          "early_to_healthy": 0,
+          "late_to_healthy": 28
+        }
+      }
+    },
+    "new_field_audit": {
+      "dataset": "New field",
+      "role": "locked post-selection external audit",
+      "images": 427,
+      "class_counts": {
+        "healthy": 103,
+        "early_blight": 187,
+        "late_blight": 137
+      },
+      "models": {
+        "ac42": {
+          "accuracy": 0.405152224824356,
+          "macro_f1": 0.4739789069990412,
+          "confusion": [
+            [
+              103,
+              0,
+              0
+            ],
+            [
+              0,
+              48,
+              139
+            ],
+            [
+              0,
+              115,
+              22
+            ]
+          ],
+          "healthy_false_alarm_count": 0,
+          "early_to_healthy": 0,
+          "late_to_healthy": 0
+        },
+        "dino-health": {
+          "accuracy": 0.4449648711943794,
+          "macro_f1": 0.5123038669296065,
+          "confusion": [
+            [
+              103,
+              0,
+              0
+            ],
+            [
+              0,
+              42,
+              145
+            ],
+            [
+              0,
+              92,
+              45
+            ]
+          ],
+          "healthy_false_alarm_count": 0,
+          "early_to_healthy": 0,
+          "late_to_healthy": 0
+        },
+        "current": {
+          "accuracy": 0.4449648711943794,
+          "macro_f1": 0.5123038669296065,
+          "confusion": [
+            [
+              103,
+              0,
+              0
+            ],
+            [
+              0,
+              42,
+              145
+            ],
+            [
+              0,
+              92,
+              45
+            ]
+          ],
+          "healthy_false_alarm_count": 0,
+          "early_to_healthy": 0,
+          "late_to_healthy": 0
+        },
+        "ac42-finetuned": {
+          "accuracy": 0.41217798594847777,
+          "macro_f1": 0.4793133900333429,
+          "confusion": [
+            [
+              101,
+              0,
+              2
+            ],
+            [
+              0,
+              53,
+              134
+            ],
+            [
+              0,
+              115,
+              22
+            ]
+          ],
+          "healthy_false_alarm_count": 2,
+          "early_to_healthy": 0,
+          "late_to_healthy": 0
+        },
+        "dino-subtype": {
+          "accuracy": 0.44028103044496486,
+          "macro_f1": 0.5084781841416888,
+          "confusion": [
+            [
+              101,
+              0,
+              2
+            ],
+            [
+              0,
+              42,
+              145
+            ],
+            [
+              0,
+              92,
+              45
+            ]
+          ],
+          "healthy_false_alarm_count": 2,
+          "early_to_healthy": 0,
+          "late_to_healthy": 0
+        }
+      }
+    },
+    "plantdoc_audit": {
+      "dataset": "PlantDoc",
+      "role": "locked post-selection external audit",
+      "images": 262,
+      "class_counts": {
+        "healthy": 63,
+        "early_blight": 88,
+        "late_blight": 111
+      },
+      "models": {
+        "ac42": {
+          "accuracy": 0.6297709923664122,
+          "macro_f1": 0.6139644293062718,
+          "confusion": [
+            [
+              60,
+              1,
+              2
+            ],
+            [
+              37,
+              32,
+              19
+            ],
+            [
+              33,
+              5,
+              73
+            ]
+          ],
+          "healthy_false_alarm_count": 3,
+          "early_to_healthy": 37,
+          "late_to_healthy": 33
+        },
+        "dino-health": {
+          "accuracy": 0.7366412213740458,
+          "macro_f1": 0.7368431905571722,
+          "confusion": [
+            [
+              60,
+              1,
+              2
+            ],
+            [
+              12,
+              54,
+              22
+            ],
+            [
+              18,
+              14,
+              79
+            ]
+          ],
+          "healthy_false_alarm_count": 3,
+          "early_to_healthy": 12,
+          "late_to_healthy": 18
+        },
+        "current": {
+          "accuracy": 0.7519083969465649,
+          "macro_f1": 0.7549884086042727,
+          "confusion": [
+            [
+              59,
+              2,
+              2
+            ],
+            [
+              7,
+              59,
+              22
+            ],
+            [
+              18,
+              14,
+              79
+            ]
+          ],
+          "healthy_false_alarm_count": 4,
+          "early_to_healthy": 7,
+          "late_to_healthy": 18
+        },
+        "ac42-finetuned": {
+          "accuracy": 0.7251908396946565,
+          "macro_f1": 0.7123917192776391,
+          "confusion": [
+            [
+              51,
+              2,
+              10
+            ],
+            [
+              15,
+              44,
+              29
+            ],
+            [
+              11,
+              5,
+              95
+            ]
+          ],
+          "healthy_false_alarm_count": 12,
+          "early_to_healthy": 15,
+          "late_to_healthy": 11
+        },
+        "dino-subtype": {
+          "accuracy": 0.7099236641221374,
+          "macro_f1": 0.7042537172971955,
+          "confusion": [
+            [
+              51,
+              3,
+              9
+            ],
+            [
+              15,
+              49,
+              24
+            ],
+            [
+              11,
+              14,
+              86
+            ]
+          ],
+          "healthy_false_alarm_count": 12,
+          "early_to_healthy": 15,
+          "late_to_healthy": 11
+        }
+      }
+    },
+    "agrivision_healthy": {
+      "dataset": "Agri-Vision4",
+      "role": "one-day processed healthy-only audit",
+      "images": 13,
+      "class_counts": {
+        "healthy": 13,
+        "early_blight": 0,
+        "late_blight": 0
+      },
+      "models": {
+        "ac42": {
+          "accuracy": 0.3076923076923077,
+          "macro_f1": null,
+          "confusion": [
+            [
+              4,
+              0,
+              9
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "healthy_false_alarm_count": 9,
+          "early_to_healthy": 0,
+          "late_to_healthy": 0
+        },
+        "dino-health": {
+          "accuracy": 1.0,
+          "macro_f1": null,
+          "confusion": [
+            [
+              13,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "healthy_false_alarm_count": 0,
+          "early_to_healthy": 0,
+          "late_to_healthy": 0
+        },
+        "current": {
+          "accuracy": 1.0,
+          "macro_f1": null,
+          "confusion": [
+            [
+              13,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "healthy_false_alarm_count": 0,
+          "early_to_healthy": 0,
+          "late_to_healthy": 0
+        }
+      }
+    }
+  }
+}
