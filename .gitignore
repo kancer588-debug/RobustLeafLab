@@ -5,6 +5,7 @@ __pycache__/
 models/
 experiments/
 *.pt
+!robustleaflab/directional_weights/*.pt
 *.pth
 *.zip
 *.tmp

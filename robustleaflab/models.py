@@ -9,11 +9,12 @@ from torch import nn
 from torchvision import models, transforms
 
 from .backbone import load_dino, verify
+from .directional import DirectionalReview
 
 
 ROOT = Path(__file__).resolve().parent.parent
 CLASSES = ("healthy", "early_blight", "late_blight")
-MODEL_NAMES = ("a42", "c42", "ac42", "ac42-finetuned", "dino-subtype", "dino-health", "current")
+MODEL_NAMES = ("a42", "c42", "ac42", "ac42-finetuned", "dino-subtype", "dino-health", "v0.1.0", "current")
 PREPROCESS = transforms.Compose([
     transforms.Resize(256), transforms.CenterCrop(224), transforms.ToTensor(),
     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
@@ -84,7 +85,7 @@ class RobustLeafClassifier(nn.Module):
         self.resnet = models.resnet18(weights=None, num_classes=len(CLASSES))
         self.resnet.load_state_dict(saved["model_state"], strict=True)
         self.dino = None
-        if name.startswith("dino-") or name == "current":
+        if name.startswith("dino-") or name in ("v0.1.0", "current"):
             subtype = checkpoint(models_dir, "dino-subtype-head.pt")
             if subtype["feature"] != "dino":
                 raise ValueError("Incompatible DINOv2 subtype feature format")
@@ -95,12 +96,14 @@ class RobustLeafClassifier(nn.Module):
                 health = checkpoint(models_dir, "dino-health-head.pt")
                 self.health = LinearHead(health["state"])
                 self.health_strength = health["strength"]
-            if name == "current":
+            if name in ("v0.1.0", "current"):
                 early = checkpoint(models_dir, "early-review-head.pt")
                 if early["view"] != "standard" or early["mode"] != "rescue_only":
                     raise ValueError("Incompatible early-review checkpoint")
                 self.early = LinearHead(early["state"])
                 self.early_strength = early["strength"]
+        if name == "current":
+            self.directional_review = DirectionalReview()
         self.resnet.to(self.device, memory_format=torch.channels_last)
         self.requires_grad_(False).to(self.device).eval()
 
@@ -115,6 +118,8 @@ class RobustLeafClassifier(nn.Module):
         scores = fuse_subtype(scores, self.subtype(features), self.fraction)
         if self.name != "dino-subtype":
             scores = apply_health(scores, self.health(features), self.health_strength)
-        if self.name == "current":
+        if self.name in ("v0.1.0", "current"):
             scores = apply_early(scores, self.early(features), self.early_strength)
+        if self.name == "current":
+            scores = self.directional_review(scores, tokens["x_norm_clstoken"], tokens["x_norm_patchtokens"], features)
         return scores

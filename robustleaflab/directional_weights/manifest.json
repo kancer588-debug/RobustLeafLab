@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "version": "v0.2.0",
+  "promotion_basis": "highest accuracy on existing four three-class historical replay cohorts",
+  "independent_three_class_confirmed": false,
+  "subtype_decision_sha256": "b9ab6976bfd29587627002953466b751d9cb450d8c9c15bd0b3369fe85d0027f",
+  "early_rescue_decision_sha256": "7dfab5b9486407ea9446b46c2e2437c95c0be1d00ccf1f155579a5c3f597f984",
+  "heads": [
+    {
+      "seed": 42,
+      "early_rescue": {
+        "file": "rescue-s42.pt",
+        "sha256": "232f9aac4f5f0659a242c587692483d5c7edbac80691b484ed6b22ebbd83f49e",
+        "bytes": 78269,
+        "threshold": 1.5,
+        "gap": 1.0,
+        "epoch": 2
+      },
+      "subtype": {
+        "file": "subtype-s42.pt",
+        "sha256": "158c0e88986841bf3e9f951520f79601b35942032331c0efc2044442fbc5359d",
+        "bytes": 156733,
+        "early_threshold": 2.0,
+        "late_threshold": 2.0,
+        "gap": 1.0,
+        "epoch": 8
+      }
+    },
+    {
+      "seed": 45,
+      "early_rescue": {
+        "file": "rescue-s45.pt",
+        "sha256": "cc0d3fc8fd42802a11f0ee212537bdadfb48d21ed26949b5f9d538698845bff1",
+        "bytes": 78269,
+        "threshold": 3.0,
+        "gap": 1.0,
+        "epoch": 4
+      },
+      "subtype": {
+        "file": "subtype-s45.pt",
+        "sha256": "8c3d884b390de2ff273bbadc9bf1de79d1ed2d619c85357821d825bd0019dc71",
+        "bytes": 156733,
+        "early_threshold": 1.0,
+        "late_threshold": 0.5,
+        "gap": 0.5,
+        "epoch": 8
+      }
+    },
+    {
+      "seed": 46,
+      "early_rescue": {
+        "file": "rescue-s46.pt",
+        "sha256": "634f0f8eafeeef3453ce9376f9a198dcf2bbf02b96a848e79f8a8b45a370950d",
+        "bytes": 78269,
+        "threshold": 3.0,
+        "gap": 1.0,
+        "epoch": 2
+      },
+      "subtype": {
+        "file": "subtype-s46.pt",
+        "sha256": "db406d8175fb7e744f61689375aa4882918a3cc4f0c4964ad473779ccfa18384",
+        "bytes": 156733,
+        "early_threshold": 1.0,
+        "late_threshold": 3.0,
+        "gap": 1.0,
+        "epoch": 8
+      }
+    }
+  ]
+}

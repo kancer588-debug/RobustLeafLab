@@ -16,8 +16,24 @@
       },
       "models": {
         "ac42": {
+          "n": 872,
           "accuracy": 0.588302752293578,
           "macro_f1": 0.5047592729059199,
+          "early_recall": 0.06896551724137931,
+          "late_recall": 0.7289719626168224,
+          "healthy_false_alarm_count": 4,
+          "late_to_healthy": 47,
+          "late_to_early": 11,
+          "class_counts": {
+            "healthy": 339,
+            "early_blight": 319,
+            "late_blight": 214
+          },
+          "class_f1": {
+            "healthy": 0.7282608695652174,
+            "early_blight": 0.125,
+            "late_blight": 0.6610169491525424
+          },
           "confusion": [
             [
               335,
@@ -35,9 +51,12 @@
               156
             ]
           ],
-          "healthy_false_alarm_count": 4,
+          "early_to_late": 98,
           "early_to_healthy": 199,
-          "late_to_healthy": 47
+          "subtype_early_correct": 73,
+          "subtype_late_correct": 187,
+          "subtype_balanced_accuracy": 0.5513359505463921,
+          "fixed_subtype_ceiling_correct": 599
         },
         "dino-health": {
           "accuracy": 0.6915137614678899,
@@ -64,8 +83,24 @@
           "late_to_healthy": 3
         },
         "current": {
-          "accuracy": 0.7339449541284404,
-          "macro_f1": 0.7130192499249147,
+          "n": 872,
+          "accuracy": 0.7385321100917431,
+          "macro_f1": 0.7180536875430747,
+          "early_recall": 0.5517241379310345,
+          "late_recall": 0.677570093457944,
+          "healthy_false_alarm_count": 16,
+          "late_to_healthy": 3,
+          "late_to_early": 66,
+          "class_counts": {
+            "healthy": 339,
+            "early_blight": 319,
+            "late_blight": 214
+          },
+          "class_f1": {
+            "healthy": 0.8849315068493151,
+            "early_blight": 0.6219081272084805,
+            "late_blight": 0.6473214285714286
+          },
           "confusion": [
             [
               323,
@@ -73,9 +108,9 @@
               11
             ],
             [
-              67,
-              172,
-              80
+              65,
+              176,
+              78
             ],
             [
               3,
@@ -83,9 +118,12 @@
               145
             ]
           ],
-          "healthy_false_alarm_count": 16,
-          "early_to_healthy": 67,
-          "late_to_healthy": 3
+          "early_to_late": 78,
+          "early_to_healthy": 65,
+          "subtype_early_correct": 207,
+          "subtype_late_correct": 148,
+          "subtype_balanced_accuracy": 0.6702458031816717,
+          "fixed_subtype_ceiling_correct": 694
         },
         "ac42-finetuned": {
           "accuracy": 0.6284403669724771,
@@ -134,8 +172,52 @@
           "healthy_false_alarm_count": 24,
           "early_to_healthy": 102,
           "late_to_healthy": 8
+        },
+        "v0.1.0": {
+          "n": 872,
+          "accuracy": 0.7339449541284404,
+          "macro_f1": 0.7130192499249147,
+          "early_recall": 0.5391849529780565,
+          "late_recall": 0.677570093457944,
+          "healthy_false_alarm_count": 16,
+          "late_to_healthy": 3,
+          "late_to_early": 66,
+          "class_counts": {
+            "healthy": 339,
+            "early_blight": 319,
+            "late_blight": 214
+          },
+          "class_f1": {
+            "healthy": 0.8825136612021858,
+            "early_blight": 0.6120996441281139,
+            "late_blight": 0.6444444444444445
+          },
+          "confusion": [
+            [
+              323,
+              5,
+              11
+            ],
+            [
+              67,
+              172,
+              80
+            ],
+            [
+              3,
+              66,
+              145
+            ]
+          ],
+          "early_to_late": 80,
+          "early_to_healthy": 67,
+          "subtype_early_correct": 204,
+          "subtype_late_correct": 148,
+          "subtype_balanced_accuracy": 0.665543608824305,
+          "fixed_subtype_ceiling_correct": 691
         }
-      }
+      },
+      "manifest_sha256": "a82ec6d435ea0ee2e80d23153bfc80b8ec57c10cef4c5ad17731ab20295d1ea6"
     },
     "plantwild_replay": {
       "dataset": "PlantWild",
@@ -148,8 +230,24 @@
       },
       "models": {
         "ac42": {
+          "n": 102,
           "accuracy": 0.43137254901960786,
           "macro_f1": 0.42833627278071723,
+          "early_recall": 0.22,
+          "late_recall": 0.42424242424242425,
+          "healthy_false_alarm_count": 0,
+          "late_to_healthy": 17,
+          "late_to_early": 2,
+          "class_counts": {
+            "healthy": 19,
+            "early_blight": 50,
+            "late_blight": 33
+          },
+          "class_f1": {
+            "healthy": 0.4691358024691358,
+            "early_blight": 0.3492063492063492,
+            "late_blight": 0.4666666666666667
+          },
           "confusion": [
             [
               19,
@@ -167,9 +265,12 @@
               14
             ]
           ],
-          "healthy_false_alarm_count": 0,
+          "early_to_late": 13,
           "early_to_healthy": 26,
-          "late_to_healthy": 17
+          "subtype_early_correct": 25,
+          "subtype_late_correct": 24,
+          "subtype_balanced_accuracy": 0.6136363636363636,
+          "fixed_subtype_ceiling_correct": 68
         },
         "dino-health": {
           "accuracy": 0.6274509803921569,
@@ -196,8 +297,24 @@
           "late_to_healthy": 10
         },
         "current": {
+          "n": 102,
           "accuracy": 0.6568627450980392,
           "macro_f1": 0.6493152816682228,
+          "early_recall": 0.6,
+          "late_recall": 0.6060606060606061,
+          "healthy_false_alarm_count": 2,
+          "late_to_healthy": 10,
+          "late_to_early": 3,
+          "class_counts": {
+            "healthy": 19,
+            "early_blight": 50,
+            "late_blight": 33
+          },
+          "class_f1": {
+            "healthy": 0.6071428571428571,
+            "early_blight": 0.7058823529411765,
+            "late_blight": 0.6349206349206349
+          },
           "confusion": [
             [
               17,
@@ -215,9 +332,12 @@
               20
             ]
           ],
-          "healthy_false_alarm_count": 2,
+          "early_to_late": 10,
           "early_to_healthy": 10,
-          "late_to_healthy": 10
+          "subtype_early_correct": 36,
+          "subtype_late_correct": 29,
+          "subtype_balanced_accuracy": 0.7993939393939393,
+          "fixed_subtype_ceiling_correct": 84
         },
         "ac42-finetuned": {
           "accuracy": 0.4803921568627451,
@@ -266,8 +386,52 @@
           "healthy_false_alarm_count": 5,
           "early_to_healthy": 14,
           "late_to_healthy": 13
+        },
+        "v0.1.0": {
+          "n": 102,
+          "accuracy": 0.6568627450980392,
+          "macro_f1": 0.6493152816682228,
+          "early_recall": 0.6,
+          "late_recall": 0.6060606060606061,
+          "healthy_false_alarm_count": 2,
+          "late_to_healthy": 10,
+          "late_to_early": 3,
+          "class_counts": {
+            "healthy": 19,
+            "early_blight": 50,
+            "late_blight": 33
+          },
+          "class_f1": {
+            "healthy": 0.6071428571428571,
+            "early_blight": 0.7058823529411765,
+            "late_blight": 0.6349206349206349
+          },
+          "confusion": [
+            [
+              17,
+              2,
+              0
+            ],
+            [
+              10,
+              30,
+              10
+            ],
+            [
+              10,
+              3,
+              20
+            ]
+          ],
+          "early_to_late": 10,
+          "early_to_healthy": 10,
+          "subtype_early_correct": 36,
+          "subtype_late_correct": 29,
+          "subtype_balanced_accuracy": 0.7993939393939393,
+          "fixed_subtype_ceiling_correct": 84
         }
-      }
+      },
+      "manifest_sha256": "e54a49bf869ddfdc552c681db1f434e71e9c944ade91fa03fe3927be047f5787"
     },
     "imtiaz_replay": {
       "dataset": "Imtiaz",
@@ -280,8 +444,24 @@
       },
       "models": {
         "ac42": {
+          "n": 48,
           "accuracy": 0.5416666666666666,
           "macro_f1": 0.4573099415204678,
+          "early_recall": 0.058823529411764705,
+          "late_recall": 0.6,
+          "healthy_false_alarm_count": 2,
+          "late_to_healthy": 3,
+          "late_to_early": 1,
+          "class_counts": {
+            "healthy": 21,
+            "early_blight": 17,
+            "late_blight": 10
+          },
+          "class_f1": {
+            "healthy": 0.6666666666666666,
+            "early_blight": 0.10526315789473684,
+            "late_blight": 0.6
+          },
           "confusion": [
             [
               19,
@@ -299,9 +479,12 @@
               6
             ]
           ],
-          "healthy_false_alarm_count": 2,
+          "early_to_late": 2,
           "early_to_healthy": 14,
-          "late_to_healthy": 3
+          "subtype_early_correct": 4,
+          "subtype_late_correct": 7,
+          "subtype_balanced_accuracy": 0.4676470588235294,
+          "fixed_subtype_ceiling_correct": 32
         },
         "dino-health": {
           "accuracy": 0.6666666666666666,
@@ -328,8 +511,24 @@
           "late_to_healthy": 1
         },
         "current": {
+          "n": 48,
           "accuracy": 0.6875,
           "macro_f1": 0.6199494949494949,
+          "early_recall": 0.7058823529411765,
+          "late_recall": 0.3,
+          "healthy_false_alarm_count": 3,
+          "late_to_healthy": 1,
+          "late_to_early": 6,
+          "class_counts": {
+            "healthy": 21,
+            "early_blight": 17,
+            "late_blight": 10
+          },
+          "class_f1": {
+            "healthy": 0.8181818181818182,
+            "early_blight": 0.6666666666666666,
+            "late_blight": 0.375
+          },
           "confusion": [
             [
               18,
@@ -347,9 +546,12 @@
               3
             ]
           ],
-          "healthy_false_alarm_count": 3,
+          "early_to_late": 1,
           "early_to_healthy": 4,
-          "late_to_healthy": 1
+          "subtype_early_correct": 14,
+          "subtype_late_correct": 3,
+          "subtype_balanced_accuracy": 0.5617647058823529,
+          "fixed_subtype_ceiling_correct": 38
         },
         "ac42-finetuned": {
           "accuracy": 0.5416666666666666,
@@ -398,8 +600,52 @@
           "healthy_false_alarm_count": 6,
           "early_to_healthy": 4,
           "late_to_healthy": 1
+        },
+        "v0.1.0": {
+          "n": 48,
+          "accuracy": 0.6875,
+          "macro_f1": 0.6199494949494949,
+          "early_recall": 0.7058823529411765,
+          "late_recall": 0.3,
+          "healthy_false_alarm_count": 3,
+          "late_to_healthy": 1,
+          "late_to_early": 6,
+          "class_counts": {
+            "healthy": 21,
+            "early_blight": 17,
+            "late_blight": 10
+          },
+          "class_f1": {
+            "healthy": 0.8181818181818182,
+            "early_blight": 0.6666666666666666,
+            "late_blight": 0.375
+          },
+          "confusion": [
+            [
+              18,
+              1,
+              2
+            ],
+            [
+              4,
+              12,
+              1
+            ],
+            [
+              1,
+              6,
+              3
+            ]
+          ],
+          "early_to_late": 1,
+          "early_to_healthy": 4,
+          "subtype_early_correct": 14,
+          "subtype_late_correct": 3,
+          "subtype_balanced_accuracy": 0.5617647058823529,
+          "fixed_subtype_ceiling_correct": 38
         }
-      }
+      },
+      "manifest_sha256": "5598c998682d1af735913ee58d2a8e34788077239bf442b0852966c83fd6156a"
     },
     "rachin_replay": {
       "dataset": "Rachin",
@@ -412,8 +658,24 @@
       },
       "models": {
         "ac42": {
+          "n": 229,
           "accuracy": 0.7030567685589519,
           "macro_f1": 0.6953219053321221,
+          "early_recall": 0.5,
+          "late_recall": 0.726027397260274,
+          "healthy_false_alarm_count": 9,
+          "late_to_healthy": 1,
+          "late_to_early": 19,
+          "class_counts": {
+            "healthy": 78,
+            "early_blight": 78,
+            "late_blight": 73
+          },
+          "class_f1": {
+            "healthy": 0.8414634146341463,
+            "early_blight": 0.5693430656934306,
+            "late_blight": 0.6751592356687898
+          },
           "confusion": [
             [
               69,
@@ -431,9 +693,12 @@
               53
             ]
           ],
-          "healthy_false_alarm_count": 9,
+          "early_to_late": 23,
           "early_to_healthy": 16,
-          "late_to_healthy": 1
+          "subtype_early_correct": 48,
+          "subtype_late_correct": 54,
+          "subtype_balanced_accuracy": 0.6775553213909378,
+          "fixed_subtype_ceiling_correct": 180
         },
         "dino-health": {
           "accuracy": 0.7205240174672489,
@@ -460,8 +725,24 @@
           "late_to_healthy": 0
         },
         "current": {
-          "accuracy": 0.7292576419213974,
-          "macro_f1": 0.7241893908560576,
+          "n": 229,
+          "accuracy": 0.7336244541484717,
+          "macro_f1": 0.7290235717617772,
+          "early_recall": 0.5256410256410257,
+          "late_recall": 0.7808219178082192,
+          "healthy_false_alarm_count": 8,
+          "late_to_healthy": 0,
+          "late_to_early": 16,
+          "class_counts": {
+            "healthy": 78,
+            "early_blight": 78,
+            "late_blight": 73
+          },
+          "class_f1": {
+            "healthy": 0.8974358974358975,
+            "early_blight": 0.5815602836879432,
+            "late_blight": 0.7080745341614907
+          },
           "confusion": [
             [
               70,
@@ -470,8 +751,8 @@
             ],
             [
               8,
-              40,
-              30
+              41,
+              29
             ],
             [
               0,
@@ -479,9 +760,12 @@
               57
             ]
           ],
-          "healthy_false_alarm_count": 8,
+          "early_to_late": 29,
           "early_to_healthy": 8,
-          "late_to_healthy": 0
+          "subtype_early_correct": 47,
+          "subtype_late_correct": 57,
+          "subtype_balanced_accuracy": 0.6916930101861609,
+          "fixed_subtype_ceiling_correct": 182
         },
         "ac42-finetuned": {
           "accuracy": 0.6899563318777293,
@@ -530,8 +814,52 @@
           "healthy_false_alarm_count": 16,
           "early_to_healthy": 14,
           "late_to_healthy": 0
+        },
+        "v0.1.0": {
+          "n": 229,
+          "accuracy": 0.7292576419213974,
+          "macro_f1": 0.7241893908560576,
+          "early_recall": 0.5128205128205128,
+          "late_recall": 0.7808219178082192,
+          "healthy_false_alarm_count": 8,
+          "late_to_healthy": 0,
+          "late_to_early": 16,
+          "class_counts": {
+            "healthy": 78,
+            "early_blight": 78,
+            "late_blight": 73
+          },
+          "class_f1": {
+            "healthy": 0.8974358974358975,
+            "early_blight": 0.5714285714285714,
+            "late_blight": 0.7037037037037037
+          },
+          "confusion": [
+            [
+              70,
+              6,
+              2
+            ],
+            [
+              8,
+              40,
+              30
+            ],
+            [
+              0,
+              16,
+              57
+            ]
+          ],
+          "early_to_late": 30,
+          "early_to_healthy": 8,
+          "subtype_early_correct": 46,
+          "subtype_late_correct": 57,
+          "subtype_balanced_accuracy": 0.6852827537759045,
+          "fixed_subtype_ceiling_correct": 181
         }
-      }
+      },
+      "manifest_sha256": "a7bc35b20feb2458a1f4fbc88190d1f3caf05b162dc0a5213d3cfb5c09eb6e19"
     },
     "taiwan_healthy_late": {
       "dataset": "Taiwan",
@@ -544,8 +872,24 @@
       },
       "models": {
         "ac42": {
+          "n": 204,
           "accuracy": 0.7401960784313726,
           "macro_f1": null,
+          "early_recall": null,
+          "late_recall": 0.5510204081632653,
+          "healthy_false_alarm_count": 9,
+          "late_to_healthy": 41,
+          "late_to_early": 3,
+          "class_counts": {
+            "healthy": 106,
+            "early_blight": 0,
+            "late_blight": 98
+          },
+          "class_f1": {
+            "healthy": 0.7950819672131147,
+            "early_blight": 0.0,
+            "late_blight": 0.6708074534161491
+          },
           "confusion": [
             [
               97,
@@ -562,10 +906,7 @@
               3,
               54
             ]
-          ],
-          "healthy_false_alarm_count": 9,
-          "early_to_healthy": 0,
-          "late_to_healthy": 41
+          ]
         },
         "dino-health": {
           "accuracy": 0.7647058823529411,
@@ -592,8 +933,24 @@
           "late_to_healthy": 22
         },
         "current": {
+          "n": 204,
           "accuracy": 0.7598039215686274,
           "macro_f1": null,
+          "early_recall": null,
+          "late_recall": 0.6530612244897959,
+          "healthy_false_alarm_count": 15,
+          "late_to_healthy": 19,
+          "late_to_early": 15,
+          "class_counts": {
+            "healthy": 106,
+            "early_blight": 0,
+            "late_blight": 98
+          },
+          "class_f1": {
+            "healthy": 0.8425925925925926,
+            "early_blight": 0.0,
+            "late_blight": 0.7314285714285714
+          },
           "confusion": [
             [
               91,
@@ -606,14 +963,11 @@
               0
             ],
             [
-              21,
-              13,
+              19,
+              15,
               64
             ]
-          ],
-          "healthy_false_alarm_count": 15,
-          "early_to_healthy": 0,
-          "late_to_healthy": 21
+          ]
         },
         "ac42-finetuned": {
           "accuracy": 0.6176470588235294,
@@ -662,8 +1016,46 @@
           "healthy_false_alarm_count": 47,
           "early_to_healthy": 0,
           "late_to_healthy": 28
+        },
+        "v0.1.0": {
+          "n": 204,
+          "accuracy": 0.7598039215686274,
+          "macro_f1": null,
+          "early_recall": null,
+          "late_recall": 0.6530612244897959,
+          "healthy_false_alarm_count": 15,
+          "late_to_healthy": 21,
+          "late_to_early": 13,
+          "class_counts": {
+            "healthy": 106,
+            "early_blight": 0,
+            "late_blight": 98
+          },
+          "class_f1": {
+            "healthy": 0.8348623853211009,
+            "early_blight": 0.0,
+            "late_blight": 0.7314285714285714
+          },
+          "confusion": [
+            [
+              91,
+              2,
+              13
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              21,
+              13,
+              64
+            ]
+          ]
         }
-      }
+      },
+      "manifest_sha256": "45f496f4c54a08766fcb39aa03d789735af1c7e3acface6601f4c1350b646e52"
     },
     "new_field_audit": {
       "dataset": "New field",
@@ -676,8 +1068,24 @@
       },
       "models": {
         "ac42": {
+          "n": 427,
           "accuracy": 0.405152224824356,
           "macro_f1": 0.4739789069990412,
+          "early_recall": 0.25668449197860965,
+          "late_recall": 0.16058394160583941,
+          "healthy_false_alarm_count": 0,
+          "late_to_healthy": 0,
+          "late_to_early": 115,
+          "class_counts": {
+            "healthy": 103,
+            "early_blight": 187,
+            "late_blight": 137
+          },
+          "class_f1": {
+            "healthy": 1.0,
+            "early_blight": 0.2742857142857143,
+            "late_blight": 0.1476510067114094
+          },
           "confusion": [
             [
               103,
@@ -695,9 +1103,12 @@
               22
             ]
           ],
-          "healthy_false_alarm_count": 0,
+          "early_to_late": 139,
           "early_to_healthy": 0,
-          "late_to_healthy": 0
+          "subtype_early_correct": 48,
+          "subtype_late_correct": 22,
+          "subtype_balanced_accuracy": 0.20863421679222455,
+          "fixed_subtype_ceiling_correct": 173
         },
         "dino-health": {
           "accuracy": 0.4449648711943794,
@@ -724,8 +1135,24 @@
           "late_to_healthy": 0
         },
         "current": {
-          "accuracy": 0.4449648711943794,
-          "macro_f1": 0.5123038669296065,
+          "n": 427,
+          "accuracy": 0.44730679156908665,
+          "macro_f1": 0.5143847883245055,
+          "early_recall": 0.22994652406417113,
+          "late_recall": 0.3284671532846715,
+          "healthy_false_alarm_count": 0,
+          "late_to_healthy": 0,
+          "late_to_early": 92,
+          "class_counts": {
+            "healthy": 103,
+            "early_blight": 187,
+            "late_blight": 137
+          },
+          "class_f1": {
+            "healthy": 1.0,
+            "early_blight": 0.2670807453416149,
+            "late_blight": 0.27607361963190186
+          },
           "confusion": [
             [
               103,
@@ -734,8 +1161,8 @@
             ],
             [
               0,
-              42,
-              145
+              43,
+              144
             ],
             [
               0,
@@ -743,9 +1170,12 @@
               45
             ]
           ],
-          "healthy_false_alarm_count": 0,
+          "early_to_late": 144,
           "early_to_healthy": 0,
-          "late_to_healthy": 0
+          "subtype_early_correct": 43,
+          "subtype_late_correct": 45,
+          "subtype_balanced_accuracy": 0.2792068386744213,
+          "fixed_subtype_ceiling_correct": 191
         },
         "ac42-finetuned": {
           "accuracy": 0.41217798594847777,
@@ -794,8 +1224,52 @@
           "healthy_false_alarm_count": 2,
           "early_to_healthy": 0,
           "late_to_healthy": 0
+        },
+        "v0.1.0": {
+          "n": 427,
+          "accuracy": 0.4449648711943794,
+          "macro_f1": 0.5123038669296065,
+          "early_recall": 0.22459893048128343,
+          "late_recall": 0.3284671532846715,
+          "healthy_false_alarm_count": 0,
+          "late_to_healthy": 0,
+          "late_to_early": 92,
+          "class_counts": {
+            "healthy": 103,
+            "early_blight": 187,
+            "late_blight": 137
+          },
+          "class_f1": {
+            "healthy": 1.0,
+            "early_blight": 0.2616822429906542,
+            "late_blight": 0.27522935779816515
+          },
+          "confusion": [
+            [
+              103,
+              0,
+              0
+            ],
+            [
+              0,
+              42,
+              145
+            ],
+            [
+              0,
+              92,
+              45
+            ]
+          ],
+          "early_to_late": 145,
+          "early_to_healthy": 0,
+          "subtype_early_correct": 42,
+          "subtype_late_correct": 45,
+          "subtype_balanced_accuracy": 0.27653304188297745,
+          "fixed_subtype_ceiling_correct": 190
         }
-      }
+      },
+      "manifest_sha256": "0fb41792133bd8c0384e4f9f8ed9a7d237c2cd598b86c0eea8977cd51d041efc"
     },
     "plantdoc_audit": {
       "dataset": "PlantDoc",
@@ -808,8 +1282,24 @@
       },
       "models": {
         "ac42": {
+          "n": 262,
           "accuracy": 0.6297709923664122,
           "macro_f1": 0.6139644293062718,
+          "early_recall": 0.36363636363636365,
+          "late_recall": 0.6576576576576577,
+          "healthy_false_alarm_count": 3,
+          "late_to_healthy": 33,
+          "late_to_early": 5,
+          "class_counts": {
+            "healthy": 63,
+            "early_blight": 88,
+            "late_blight": 111
+          },
+          "class_f1": {
+            "healthy": 0.6217616580310881,
+            "early_blight": 0.5079365079365079,
+            "late_blight": 0.7121951219512195
+          },
           "confusion": [
             [
               60,
@@ -827,9 +1317,12 @@
               73
             ]
           ],
-          "healthy_false_alarm_count": 3,
+          "early_to_late": 19,
           "early_to_healthy": 37,
-          "late_to_healthy": 33
+          "subtype_early_correct": 59,
+          "subtype_late_correct": 102,
+          "subtype_balanced_accuracy": 0.7946867321867321,
+          "fixed_subtype_ceiling_correct": 224
         },
         "dino-health": {
           "accuracy": 0.7366412213740458,
@@ -856,8 +1349,24 @@
           "late_to_healthy": 18
         },
         "current": {
-          "accuracy": 0.7519083969465649,
-          "macro_f1": 0.7549884086042727,
+          "n": 262,
+          "accuracy": 0.7480916030534351,
+          "macro_f1": 0.752508612895625,
+          "early_recall": 0.6818181818181818,
+          "late_recall": 0.6936936936936937,
+          "healthy_false_alarm_count": 4,
+          "late_to_healthy": 18,
+          "late_to_early": 16,
+          "class_counts": {
+            "healthy": 63,
+            "early_blight": 88,
+            "late_blight": 111
+          },
+          "class_f1": {
+            "healthy": 0.8082191780821918,
+            "early_blight": 0.7228915662650602,
+            "late_blight": 0.7264150943396226
+          },
           "confusion": [
             [
               59,
@@ -865,19 +1374,22 @@
               2
             ],
             [
-              7,
-              59,
+              6,
+              60,
               22
             ],
             [
               18,
-              14,
-              79
+              16,
+              77
             ]
           ],
-          "healthy_false_alarm_count": 4,
-          "early_to_healthy": 7,
-          "late_to_healthy": 18
+          "early_to_late": 22,
+          "early_to_healthy": 6,
+          "subtype_early_correct": 61,
+          "subtype_late_correct": 92,
+          "subtype_balanced_accuracy": 0.7610053235053236,
+          "fixed_subtype_ceiling_correct": 216
         },
         "ac42-finetuned": {
           "accuracy": 0.7251908396946565,
@@ -926,8 +1438,52 @@
           "healthy_false_alarm_count": 12,
           "early_to_healthy": 15,
           "late_to_healthy": 11
+        },
+        "v0.1.0": {
+          "n": 262,
+          "accuracy": 0.7519083969465649,
+          "macro_f1": 0.7549884086042727,
+          "early_recall": 0.6704545454545454,
+          "late_recall": 0.7117117117117117,
+          "healthy_false_alarm_count": 4,
+          "late_to_healthy": 18,
+          "late_to_early": 14,
+          "class_counts": {
+            "healthy": 63,
+            "early_blight": 88,
+            "late_blight": 111
+          },
+          "class_f1": {
+            "healthy": 0.8027210884353742,
+            "early_blight": 0.7239263803680982,
+            "late_blight": 0.7383177570093458
+          },
+          "confusion": [
+            [
+              59,
+              2,
+              2
+            ],
+            [
+              7,
+              59,
+              22
+            ],
+            [
+              18,
+              14,
+              79
+            ]
+          ],
+          "early_to_late": 22,
+          "early_to_healthy": 7,
+          "subtype_early_correct": 60,
+          "subtype_late_correct": 94,
+          "subtype_balanced_accuracy": 0.7643325143325144,
+          "fixed_subtype_ceiling_correct": 217
         }
-      }
+      },
+      "manifest_sha256": "1b3ae5d6aa6dc617217c4681450807c5d0ca0cca31cb3e9b18c5d77fcc46cc82"
     },
     "agrivision_healthy": {
       "dataset": "Agri-Vision4",
@@ -940,8 +1496,24 @@
       },
       "models": {
         "ac42": {
+          "n": 13,
           "accuracy": 0.3076923076923077,
           "macro_f1": null,
+          "early_recall": null,
+          "late_recall": null,
+          "healthy_false_alarm_count": 9,
+          "late_to_healthy": 0,
+          "late_to_early": 0,
+          "class_counts": {
+            "healthy": 13,
+            "early_blight": 0,
+            "late_blight": 0
+          },
+          "class_f1": {
+            "healthy": 0.47058823529411764,
+            "early_blight": 0.0,
+            "late_blight": 0.0
+          },
           "confusion": [
             [
               4,
@@ -958,10 +1530,7 @@
               0,
               0
             ]
-          ],
-          "healthy_false_alarm_count": 9,
-          "early_to_healthy": 0,
-          "late_to_healthy": 0
+          ]
         },
         "dino-health": {
           "accuracy": 1.0,
@@ -988,8 +1557,24 @@
           "late_to_healthy": 0
         },
         "current": {
+          "n": 13,
           "accuracy": 1.0,
           "macro_f1": null,
+          "early_recall": null,
+          "late_recall": null,
+          "healthy_false_alarm_count": 0,
+          "late_to_healthy": 0,
+          "late_to_early": 0,
+          "class_counts": {
+            "healthy": 13,
+            "early_blight": 0,
+            "late_blight": 0
+          },
+          "class_f1": {
+            "healthy": 1.0,
+            "early_blight": 0.0,
+            "late_blight": 0.0
+          },
           "confusion": [
             [
               13,
@@ -1006,11 +1591,204 @@
               0,
               0
             ]
-          ],
+          ]
+        },
+        "v0.1.0": {
+          "n": 13,
+          "accuracy": 1.0,
+          "macro_f1": null,
+          "early_recall": null,
+          "late_recall": null,
           "healthy_false_alarm_count": 0,
-          "early_to_healthy": 0,
-          "late_to_healthy": 0
+          "late_to_healthy": 0,
+          "late_to_early": 0,
+          "class_counts": {
+            "healthy": 13,
+            "early_blight": 0,
+            "late_blight": 0
+          },
+          "class_f1": {
+            "healthy": 1.0,
+            "early_blight": 0.0,
+            "late_blight": 0.0
+          },
+          "confusion": [
+            [
+              13,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
         }
+      },
+      "manifest_sha256": "785473d5f232134bf7385db32713b4b0da9e9a48fa38fd5b10d75af3ad722299"
+    },
+    "plantseg_subtype_stress": {
+      "dataset": "PlantSeg",
+      "role": "two-class subtype stress replay",
+      "images": 128,
+      "class_counts": {
+        "healthy": 0,
+        "early_blight": 64,
+        "late_blight": 64
+      },
+      "models": {
+        "ac42": {
+          "n": 128,
+          "accuracy": 0.578125,
+          "macro_f1": null,
+          "early_recall": 0.390625,
+          "late_recall": 0.765625,
+          "healthy_false_alarm_count": 0,
+          "late_to_healthy": 13,
+          "late_to_early": 2,
+          "class_counts": {
+            "healthy": 0,
+            "early_blight": 64,
+            "late_blight": 64
+          },
+          "class_f1": {
+            "healthy": 0.0,
+            "early_blight": 0.5494505494505495,
+            "late_blight": 0.7313432835820896
+          },
+          "confusion": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              18,
+              25,
+              21
+            ],
+            [
+              13,
+              2,
+              49
+            ]
+          ]
+        },
+        "v0.1.0": {
+          "n": 128,
+          "accuracy": 0.71875,
+          "macro_f1": null,
+          "early_recall": 0.5625,
+          "late_recall": 0.875,
+          "healthy_false_alarm_count": 0,
+          "late_to_healthy": 5,
+          "late_to_early": 3,
+          "class_counts": {
+            "healthy": 0,
+            "early_blight": 64,
+            "late_blight": 64
+          },
+          "class_f1": {
+            "healthy": 0.0,
+            "early_blight": 0.6990291262135923,
+            "late_blight": 0.8057553956834532
+          },
+          "confusion": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              9,
+              36,
+              19
+            ],
+            [
+              5,
+              3,
+              56
+            ]
+          ]
+        },
+        "current": {
+          "n": 128,
+          "accuracy": 0.7109375,
+          "macro_f1": null,
+          "early_recall": 0.578125,
+          "late_recall": 0.84375,
+          "healthy_false_alarm_count": 0,
+          "late_to_healthy": 5,
+          "late_to_early": 5,
+          "class_counts": {
+            "healthy": 0,
+            "early_blight": 64,
+            "late_blight": 64
+          },
+          "class_f1": {
+            "healthy": 0.0,
+            "early_blight": 0.6981132075471698,
+            "late_blight": 0.7883211678832117
+          },
+          "confusion": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              8,
+              37,
+              19
+            ],
+            [
+              5,
+              5,
+              54
+            ]
+          ]
+        }
+      },
+      "manifest_sha256": "6713f33d41f91e867f6df1abce053118b89b165411de4807b557c273cbc6fcb0"
+    }
+  },
+  "default_model": "current",
+  "default_model_version": "v0.2.0",
+  "independent_three_class_confirmed": false,
+  "historical_three_class_pool": {
+    "cohorts": [
+      "plantcity_replay",
+      "plantwild_replay",
+      "imtiaz_replay",
+      "rachin_replay"
+    ],
+    "models": {
+      "ac42": {
+        "images": 1251,
+        "correct": 744,
+        "early_correct": 73,
+        "late_correct": 229,
+        "healthy_false_alarms": 15
+      },
+      "v0.1.0": {
+        "images": 1251,
+        "correct": 907,
+        "early_correct": 254,
+        "late_correct": 225,
+        "healthy_false_alarms": 29
+      },
+      "current": {
+        "images": 1251,
+        "correct": 912,
+        "early_correct": 259,
+        "late_correct": 225,
+        "healthy_false_alarms": 29
       }
     }
   }
