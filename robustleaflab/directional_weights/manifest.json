@@ -1,7 +1,8 @@
 {
   "format": 1,
   "version": "v0.2.0",
-  "promotion_basis": "highest accuracy on existing four three-class historical replay cohorts",
+  "threshold_selection": "Frozen development groups and preset recall and seed guardrails, checked at the central threshold and shifts of +/-0.25.",
+  "promotion_basis": "The locked v0.2.0 candidate gained five correct predictions versus v0.1.0 on four reused three-class replay cohorts. Those replays informed the release comparison.",
   "independent_three_class_confirmed": false,
   "subtype_decision_sha256": "b9ab6976bfd29587627002953466b751d9cb450d8c9c15bd0b3369fe85d0027f",
   "early_rescue_decision_sha256": "7dfab5b9486407ea9446b46c2e2437c95c0be1d00ccf1f155579a5c3f597f984",

@@ -14,6 +14,8 @@ from .backbone import verify
 HEADS_DIR = Path(__file__).with_name("directional_weights")
 EMBED_DIM = 384
 HIDDEN_DIM = 48
+EXPECTED_SEEDS = {42, 45, 46}
+REQUIRED_VOTES = 2
 
 
 class EarlyRescueHead(nn.Module):
@@ -43,9 +45,14 @@ class DirectionalReview(nn.Module):
     def __init__(self):
         super().__init__()
         self.settings = json.loads((HEADS_DIR / "manifest.json").read_text(encoding="utf-8"))
+        heads = self.settings.get("heads")
+        if (not isinstance(heads, list) or len(heads) != len(EXPECTED_SEEDS)
+                or any(not isinstance(item, dict) or type(item.get("seed")) is not int for item in heads)
+                or {item["seed"] for item in heads} != EXPECTED_SEEDS):
+            raise ValueError("The frozen directional ensemble requires exactly one head pair for each seed: 42, 45, 46.")
         self.early_rescue = nn.ModuleList()
         self.subtype = nn.ModuleList()
-        for setting in self.settings["heads"]:
+        for setting in heads:
             early = setting["early_rescue"]
             rescue = EarlyRescueHead()
             rescue.load_state_dict(self.load(early)["head"], strict=True)
@@ -75,8 +82,8 @@ class DirectionalReview(nn.Module):
             logit = subtype(features, late_leads)
             enough_evidence = torch.where(late_leads, logit >= correction["early_threshold"], logit <= -correction["late_threshold"])
             subtype_votes.append(~healthy & (subtype_gap <= correction["gap"]) & enough_evidence)
-        rescued = torch.stack(rescue_votes).sum(0) >= 2
-        switched = torch.stack(subtype_votes).sum(0) >= 2
+        rescued = torch.stack(rescue_votes).sum(0) >= REQUIRED_VOTES
+        switched = torch.stack(subtype_votes).sum(0) >= REQUIRED_VOTES
         updated = scores.clone()
         updated[rescued, 1] = scores[rescued, 0] + 1.
         other_subtype = 3 - scores[switched].argmax(1)

@@ -1,0 +1,10 @@
+image,sha256,source,true_label,expected_ac42,expected_v0.1.0,expected_current,archive_member
+images/early_blight-105.JPG,988c049329fa940d7db58e172a4b0a877bd403ec23faf53e1b0a2bfabe010f26,PlantCity v4 publisher test.zip,early_blight,late_blight,late_blight,early_blight,test/tomato_early_blight/105.JPG
+images/early_blight-314.JPG,c0ca9ff1cfa721dc4ed7f5c520941b7cc5528cefd234da9fb5b33229f986b175,PlantCity v4 publisher test.zip,early_blight,late_blight,late_blight,late_blight,test/tomato_early_blight/314.JPG
+images/early_blight-367.JPG,abbbe7b87b8bab962acea3db80742713801161c89211fe87588b2d4c253cf179,PlantCity v4 publisher test.zip,early_blight,early_blight,early_blight,early_blight,test/tomato_early_blight/367.JPG
+images/healthy-148.JPG,dd740cdf7f8a53eab1e2ff63c22dbc1be7ce468754235478d120eb345bf8002d,PlantCity v4 publisher test.zip,healthy,healthy,healthy,healthy,test/tomato_healthy_leaf/148.JPG
+images/healthy-60.JPG,9dea104dc2e9d3f2fce3fb7ad991dbdc1d5cc0b7b12cc7d6fa935f3c7ae521fd,PlantCity v4 publisher test.zip,healthy,healthy,healthy,healthy,test/tomato_healthy_leaf/60.JPG
+images/healthy-tomato_070.jpg,ae656e33e2a334a19744d9f9ac90d2c807987839edb06b0b54f1da0b77424024,PlantCity v4 publisher test.zip,healthy,healthy,healthy,healthy,test/tomato_healthy_leaf/tomato_070.jpg
+images/late_blight-190.JPG,a416354cb0f3ba72baf107eb8ee6244f627094bb9172e41691fd1335fe223dbc,PlantCity v4 publisher test.zip,late_blight,late_blight,late_blight,late_blight,test/tomato_late_blight/190.JPG
+images/late_blight-213.JPG,06f2004dfc912f68a92fabf035cfb6bc812444e4ede9fffe855984ba74b27a04,PlantCity v4 publisher test.zip,late_blight,late_blight,late_blight,late_blight,test/tomato_late_blight/213.JPG
+images/late_blight-98.JPG,b52789315c8501fabb644bbc788e78e882982fa600aa314eb64e64c39567dfb5,PlantCity v4 publisher test.zip,late_blight,early_blight,early_blight,early_blight,test/tomato_late_blight/98.JPG

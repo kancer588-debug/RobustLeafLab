@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 import torch
-from PIL import Image
+from PIL import Image, ImageOps
 from torch import nn
 from torchvision import models, transforms
 
@@ -15,14 +15,17 @@ from .directional import DirectionalReview
 ROOT = Path(__file__).resolve().parent.parent
 CLASSES = ("healthy", "early_blight", "late_blight")
 MODEL_NAMES = ("a42", "c42", "ac42", "ac42-finetuned", "dino-subtype", "dino-health", "v0.1.0", "current")
+CORE_MODEL_VERSION = "v0.1.0"
 PREPROCESS = transforms.Compose([
     transforms.Resize(256), transforms.CenterCrop(224), transforms.ToTensor(),
     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
 ])
 
 
-def read_image(path):
+def read_image(path, *, apply_exif=False):
     with Image.open(path) as image:
+        if apply_exif:
+            image = ImageOps.exif_transpose(image)
         return PREPROCESS(image.convert("RGB"))
 
 
@@ -77,6 +80,7 @@ class RobustLeafClassifier(nn.Module):
         if name not in MODEL_NAMES:
             raise ValueError(f"Unknown model: {name}")
         self.name = name
+        self.model_version = CORE_MODEL_VERSION
         self.device = torch.device(device)
         baseline = name if name in ("a42", "c42", "ac42") else "ac42-finetuned"
         saved = checkpoint(models_dir, f"{baseline}.pt")
@@ -104,6 +108,7 @@ class RobustLeafClassifier(nn.Module):
                 self.early_strength = early["strength"]
         if name == "current":
             self.directional_review = DirectionalReview()
+            self.model_version = self.directional_review.settings["version"]
         self.resnet.to(self.device, memory_format=torch.channels_last)
         self.requires_grad_(False).to(self.device).eval()
 

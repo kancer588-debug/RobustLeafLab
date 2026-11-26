@@ -1,23 +1,46 @@
 # RobustLeafLab
 
-AI3003 课程项目。输入番茄叶片照片，预测健康、早疫或晚疫。主分支默认模型为 **v0.2.0 双向分型多数票**。它在四套既有三类历史回测中判对 **912/1,251 张（72.90%）**，比 v0.1.0 多判对 5 张。新来源上的独立三类表现仍待验证。
+AI3003 课程项目。输入番茄叶片照片，预测健康、早疫或晚疫。默认模型为 **v0.2.0 双向分型多数票**。在四套既有三类历史回测中判对 **912/1,251 张（72.90%）**，比 v0.1.0 净多判对 **5 张**。同期外部审计中，New field 从 44.50% 到 44.73%，PlantDoc 从 75.19% 到 74.81%。新采集组上的独立三类测试仍待完成。
 
 ## 运行模型
 
-使用 Python 3.11 或更新版本。克隆主分支或下载它的 ZIP，并在仓库根目录运行以下命令。六个复核头已随主分支提供，基础权重继续使用已发布的 `robustleaflab-core.zip`。已有解压好的 `models/` 可以直接复用。 [主分支 ZIP](https://github.com/kancer588-debug/RobustLeafLab/archive/refs/heads/main.zip) · [基础权重 ZIP](https://github.com/kancer588-debug/RobustLeafLab/releases/download/v0.1.0/robustleaflab-core.zip)
+在仓库根目录运行。以下是 Windows PowerShell 下的 CPU 验收流程，使用 Python 3.11。下载 [基础权重 ZIP](https://github.com/kancer588-debug/RobustLeafLab/releases/download/v0.1.0/robustleaflab-core.zip) 到下载目录，再安装依赖和解压权重。已有解压好的 `models/` 可以复用。
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+$python = ".\.venv\Scripts\python.exe"
+& $python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.11.0 torchvision==0.26.0
+& $python -m pip install Pillow==12.3.0 numpy==2.4.6
 Expand-Archive -LiteralPath "$env:USERPROFILE\Downloads\robustleaflab-core.zip" -DestinationPath .
-.\.venv\Scripts\python.exe -m robustleaflab predict .\leaf.jpg
-.\.venv\Scripts\python.exe -m robustleaflab predict .\leaf.jpg --model v0.1.0
-.\.venv\Scripts\python.exe -m robustleaflab predict .\leaf.jpg --model ac42 --device cpu
+& $python -m robustleaflab predict examples/images/healthy-148.JPG --model ac42 --device cpu
+& $python -m robustleaflab evaluate examples/manifest.csv --model ac42 --device cpu --check-frozen
 ```
 
-`leaf.jpg` 换成自己的叶片图片路径。可一次传入多张图片，输出每图一行 JSON。类别顺序是 `healthy`、`early_blight`、`late_blight`。JSON 中的 `decision_scores` 是用于排序的决策分数。
+示例单图应输出 `label: healthy`。九图验收集中 AC42 判对 6 张，`frozen_mismatches` 应为 0。验收集是 PlantCity 回测的子集，适合核对运行与输出。
 
-需要 DINOv2 的模型第一次运行会从上游下载并核对固定版本文件。也可用 `python -m robustleaflab fetch-backbone` 提前准备。运行时可通过 `--models-dir` 和 `--cache-dir` 指定模型和缓存目录。 [DINOv2 固定源码版本](https://github.com/facebookresearch/dinov2/tree/7764ea0f912e53c92e82eb78a2a1631e92725fc8)
+演示默认模型前，先联网准备固定版本的 DINOv2 文件。缓存保存于 `.model-cache/`，文件通过 SHA-256 后可以离线复用。
+
+```powershell
+& $python -m robustleaflab fetch-backbone
+& $python -m robustleaflab predict examples/images/early_blight-105.JPG --model current --device cpu
+& $python -m robustleaflab evaluate examples/manifest.csv --model current --device cpu --check-frozen
+```
+
+`105.JPG` 的期望结果为 `early_blight`，默认模型的九图验收为 7 张正确和 0 条冻结预测差异。运行时可以通过 `--models-dir` 和 `--cache-dir` 指定模型与缓存目录。已有 CUDA 环境可以沿用 [依赖范围](requirements.txt)，并传 `--device cuda`。
+
+`predict` 可接收多张图片，每张输出一行 JSON。正常输出包含 `model`、解析后的 `model_version`、`label` 和 `decision_scores`。分数用来排序类别，健康分在健康判定阶段用作相对零点。遇到坏图会输出该图的 `error`，并继续处理后续图片。若有坏图，整次命令最终返回非零退出码。手机照片默认按 EXIF 转正，`--orientation raw` 使用冻结回测的原始方向。
+
+## 重跑 PlantCity 历史回测
+
+从 [PlantCity v4 数据页](https://data.mendeley.com/datasets/w8kh2xkspx/4) 下载发布方的 `test.zip`。解压后，将包含 `test/` 子目录的解压目录传给 `--images-root`。保留压缩包内原来的文件名和路径。
+
+```powershell
+& $python -m robustleaflab evaluate results/plantcity-v4-replay.csv --images-root .\PlantCity-v4 --model current --device cpu --check-frozen
+```
+
+输出 JSON 包含逐图预测、准确率、混淆矩阵和冻结一致性检查。整套 PlantCity 清单为 **872 张**，期望 AC42、v0.1.0 和 v0.2.0 分别判对 **513、640、644** 张。对同一清单切换 `--model ac42` 或 `--model v0.1.0` 可复跑两个对照。完整的 2,285 张历史核对还包括其他来源，其中本仓库提供端到端清单的是 PlantCity。
+
+自定义 CSV 支持 `image,sha256,source,true_label` 四列，`image` 为相对路径。传 `--check-frozen` 时还需要所选模型的 `expected_<model>` 列，例如 `expected_current`。不传 `--images-root` 时使用清单所在目录。评估默认保留历史原始方向，评估新手机照片时可显式用 `--orientation exif`。缺图、坏图或哈希不符时，评估会停止，分母保持与清单一致。
 
 ## 模型索引
 
@@ -32,7 +55,7 @@ Expand-Archive -LiteralPath "$env:USERPROFILE\Downloads\robustleaflab-core.zip" 
 | `v0.1.0` | 上一发布版，在 `dino-health` 基础上加 224 像素早疫复核头 |
 | `current` | 默认 v0.2.0，增加三种子早疫复核和双向分型多数票 |
 
-默认模型复用 v0.1.0 的基础网络与三个头，再用 seed 42、45、46 的复核头投票。第一轮投票可将原预测健康的图片复核为早疫。第二轮仅复核原已判病害的图片，用不同输出处理早疫改晚疫和晚疫改早疫。至少两票才改判。权重和阈值均取自锁定的实验。 [新增权重及阈值清单](robustleaflab/directional_weights/manifest.json)
+默认模型复用 v0.1.0 的基础网络与三个头，再用 seed 42、45、46 的复核头投票。第一轮投票可将原预测健康的图片复核为早疫。第二轮仅复核原已判病害的图片，用不同输出处理早疫改晚疫和晚疫改早疫。至少两票才改判。阈值由冻结开发集按预设召回和种子规则确定。锁定候选与 v0.1.0 的历史回测比较为发布提供依据。 [v0.2.0 发布清单](releases/v0.2.0.json) · [复核权重及阈值](robustleaflab/directional_weights/manifest.json)
 
 ## 已锁定的回测与审计
 
@@ -65,3 +88,7 @@ Expand-Archive -LiteralPath "$env:USERPROFILE\Downloads\robustleaflab-core.zip" 
 | `robustleaflab-experimental-heads.zip` | 分型、局部特征、健康判定、早疫复核和同批次配对等实验分类头 |
 
 实验 ZIP 保留研究用检查点和目录对应关系。归档包含模型张量与必要参数，逐个文件及 ZIP 的 SHA-256 见历史发布清单。 [v0.1.0 历史发布](https://github.com/kancer588-debug/RobustLeafLab/releases/tag/v0.1.0) · [历史发布清单](release-manifest.json)
+
+## 测试与第三方来源
+
+在已安装依赖的环境运行 `python -m unittest discover -s tests -v`，可检查读图、评估和投票的边界行为。样例照片和 DINOv2 的来源及许可证见 [第三方材料说明](THIRD_PARTY_NOTICES.md)。

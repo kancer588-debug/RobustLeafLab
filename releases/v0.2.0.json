@@ -1,0 +1,15 @@
+{
+  "version": "v0.2.0",
+  "default_model": "current",
+  "core_dependency": {
+    "version": "v0.1.0",
+    "asset": "robustleaflab-core.zip",
+    "url": "https://github.com/kancer588-debug/RobustLeafLab/releases/download/v0.1.0/robustleaflab-core.zip",
+    "sha256": "e22304094da660690c15f2d0d8fbda5fc841d4aabac27e7da4c78785e731a304",
+    "archive_manifest": "release-manifest.json"
+  },
+  "review_weights_manifest": "robustleaflab/directional_weights/manifest.json",
+  "historical_metrics": "results/replays.json",
+  "plantcity_replay_manifest": "results/plantcity-v4-replay.csv",
+  "orientation_for_frozen_replays": "raw"
+}
