@@ -40,6 +40,12 @@ Expand-Archive -LiteralPath "$env:USERPROFILE\Downloads\robustleaflab-core.zip" 
 
 输出 JSON 包含逐图预测、准确率、混淆矩阵和冻结一致性检查。整套 PlantCity 清单为 **872 张**，期望 AC42、v0.1.0 和 v0.2.0 分别判对 **513、640、644** 张。对同一清单切换 `--model ac42` 或 `--model v0.1.0` 可复跑两个对照。完整的 2,285 张历史核对还包括其他来源，其中本仓库提供端到端清单的是 PlantCity。
 
+## 训练、数据处理与统计
+
+课程提交用的实验源码在 [`scripts/`](scripts/) 和 [`research/`](research/README.md)。包括 AC42 的微调、按来源筛选与感知哈希去重、拍摄组清单、冻结 DINOv2 头的训练与阈值筛选，以及配对 bootstrap 和 McNemar 检验。方向分型的冻结协议、决策和逐图归档随课程提交包提供。完整历史训练需要原始数据清单、检查点和对应上游记录。九图 Demo 和配对统计可单独运行。
+
+新增的统一三类 DINOv2 线性头在冻结后进行了诊断对照。在四套历史回测上判对 752/1,251（60.11%），在 New field 上判对 307/427（71.90%）。详情见[实验入口和结果](research/README.md)。New field 和 PlantDoc 始终只用于锁定后的审计。
+
 自定义 CSV 支持 `image,sha256,source,true_label` 四列，`image` 为相对路径。传 `--check-frozen` 时还需要所选模型的 `expected_<model>` 列，例如 `expected_current`。不传 `--images-root` 时使用清单所在目录。评估默认保留历史原始方向，评估新手机照片时可显式用 `--orientation exif`。缺图、坏图或哈希不符时，评估会停止，分母保持与清单一致。
 
 ## 模型索引

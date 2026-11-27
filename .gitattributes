@@ -1,0 +1,3 @@
+# Preserve original byte hashes for archived source, replay receipts, and weights.
+/scripts/*.py -text
+/research/records/** -text
